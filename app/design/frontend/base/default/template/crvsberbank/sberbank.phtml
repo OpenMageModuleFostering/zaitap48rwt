@@ -1,0 +1,286 @@
+<style type="text/css">
+    table.sbb td { color: #000000; font-size: 12px; font-family: Arial, Tahoma; }
+    @media print {
+        input {display: none; }
+    }
+    @media screen{
+        .fancybox-inner table.sbb{transform:scale(1);}
+
+        .addinfo{}
+        .fancybox-inner table.sbb{
+            font-size: 15px !important;
+        }
+
+
+    }
+    .fancybox-inner table.sbb td{
+        font-size: 15px !important;
+    }
+</style>
+
+<?php $date = new DateTime(); ?>
+
+<div style="margin-left: 25px; margin-right: 25px" >
+    <table style="width: 100%; height: 145mm; font-size:14px;" class="sbb" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr valign="top">
+                <td style="border-right: 1pt solid rgb(0, 0, 0); <!-- border-width: 1pt medium medium 1pt; --> border-style: solid none none solid; border-color: rgb(0, 0, 0) -moz-use-text-color -moz-use-text-color rgb(0, 0, 0); width: 30mm; height: 70mm;" align="center">
+                    <br><strong>Извещение</strong><br>
+                    <font style="FONT-SIZE: 50mm">&nbsp;<br></font>
+                    <strong>Кассир</strong>
+                </td>
+                <td style="border-right: medium none; <!-- border-width: 1pt 1pt medium; --> border-style: solid solid none; border-color: rgb(0, 0, 0) rgb(0, 0, 0) -moz-use-text-color;" align="center">
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="right"><small><em>Форма № ПД-4</em></small></td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0); font-size:14px;">
+                                    <p>
+                                        <strong>
+                                            <?php echo $this->getStoreName() ?>
+                                            &nbsp;&nbsp; 
+                                            (<?php echo $this->getStorePhone() ?>
+                                            &nbsp;&nbsp; 
+                                            <?php echo $this->getStoreEmail() ?>)
+                                        </strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style=" border-bottom: 1pt solid rgb(0, 0, 0);">
+                                    &nbsp;&nbsp;ИНН/КПП: <?php echo $this->getBankAccount("tax") ?>/<?php echo $this->getBankAccount("classifier") ?>      
+                                    Р/С: <?php echo $this->getBankAccount("account") ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style=" border-bottom: 1pt solid rgb(0, 0, 0); width: 100%">
+                                    &nbsp;&nbsp;в <?php echo $this->getBankAccount("name") ?> г. <?php echo $this->getBankAccount("city") ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td nowrap="nowrap" style="border-bottom: 1pt solid rgb(0, 0, 0);" width="100%">
+                                    &nbsp;&nbsp;БИК : <?php echo $this->getBankAccount("bank") ?>            
+                                    К/С : <?php echo $this->getBankAccount("сorresponding") ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="center"><small>&nbsp;</small></td>
+                            </tr>
+                            <tr>
+                                <td nowrap="nowrap" width="1%">Плательщик (ФИО):</td>
+
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0);" width="100%"><?php echo $this->getCustomerName(); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="center"><small>&nbsp;</small></td>
+                            </tr>
+                            <tr>
+                                <td nowrap="nowrap" width="1%">Адрес:&nbsp;</td>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0);" width="100%">
+                                    <?php echo $this->getAddress(); ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style="border-top: 1pt solid rgb(0, 0, 0);border-right: 1pt solid rgb(0, 0, 0); width: 80mm;">Назначаение платежа: <b>Оплата товара из интернет-магазина <?php echo Mage::getStoreConfig("general/store_information/name", Mage::app()->getStore()) ?></b></td>
+                                <td style="border-top: 1pt solid rgb(0, 0, 0); width: 42mm;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1pt solid rgb(0, 0, 0); width: 80mm;">За оплату услуг по договору:</td>
+                                <td style=" width: 42mm;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td  style="margin-top: 3pt;border-right: 1pt solid rgb(0, 0, 0);">&nbsp;</td>
+                                <td style=" width: 42mm;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1pt solid rgb(0, 0, 0); width: 80mm;text-align: center;" align="center">
+                                    <p style="border-bottom: 1pt solid rgb(0, 0, 0); text-align: center;width:70%; margin-left:10mm; font-size: 20px;">
+                                        <?php echo $this->getOrderIncrementId() ?>
+                                    </p>
+                                </td>
+                                <td style=" width: 42mm; text-align: center;" align="center">
+                                    <p style="border-bottom: 1pt solid rgb(0, 0, 0); width: 75%; text-align: center; margin-left:6mm; font-size: 20px;">
+                                        <?php echo $this->getOrderTotal() ?>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0);border-right: 1pt solid rgb(0, 0, 0); width: 80mm;text-align: center;" align="center">
+                                    <small>номер  договора</small>
+                                </td>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0); width: 42mm;text-align: center;" align="center">
+                                    <small>сумма</small>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="center"><small>&nbsp;</small></td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Подпись плательщика ___________________</strong>&nbsp;&nbsp;</td>
+                                <td align="right" style="border-bottom: 1pt solid rgb(0, 0, 0);"><?php echo $date->format("«d» m.Y г."); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+
+            </tr>
+            <tr valign="top">
+                <td style="border-right: 1pt solid rgb(0, 0, 0); border-top: 1pt solid rgb(0, 0, 0); <!-- border-width: 1pt medium 1pt 1pt; --> border-style: solid none solid solid; border-color: rgb(0, 0, 0) -moz-use-text-color -moz-use-text-color rgb(0, 0, 0); width: 30mm; height: 70mm;" align="center">
+                    <strong style="margin-top: 64px;">Квитанция</strong><br>
+                    <font style="FONT-SIZE: 53mm">&nbsp;<br></font>
+                    <strong>Кассир</strong>
+                </td>
+                <td style="border-right: medium none; <!-- border-width: 1pt 1pt 1pt; --> border-style: solid solid solid; border-color: rgb(0, 0, 0) rgb(0, 0, 0) -moz-use-text-color;" align="center">
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="right"><small><em>Форма № ПД-4</em></small></td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0); font-size:14px;">
+                                    <p>
+                                        <strong>
+                                            <?php echo $this->getStoreName() ?>
+                                            &nbsp;&nbsp; 
+                                            (<?php echo $this->getStorePhone() ?>
+                                            &nbsp;&nbsp; 
+                                            <?php echo $this->getStoreEmail() ?>)
+                                        </strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style=" border-bottom: 1pt solid rgb(0, 0, 0);">
+                                    &nbsp;&nbsp;ИНН/КПП: <?php echo $this->getBankAccount("tax") ?>/<?php echo $this->getBankAccount("classifier") ?>      
+                                    Р/С: <?php echo $this->getBankAccount("account") ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style=" border-bottom: 1pt solid rgb(0, 0, 0); width: 100%">
+                                    &nbsp;&nbsp;в <?php echo $this->getBankAccount("name") ?> г. <?php echo $this->getBankAccount("city") ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td nowrap="nowrap" style="border-bottom: 1pt solid rgb(0, 0, 0);" width="100%">&nbsp;&nbsp;БИК : 044525225            К/С : 30101810400000000225</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="center"><small>&nbsp;</small></td>
+                            </tr>
+                            <tr>
+                                <td nowrap="nowrap" width="1%">Плательщик (ФИО):</td>
+
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0);" width="100%"><?php echo $this->getCustomerName(); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="center"><small>&nbsp;</small></td>
+                            </tr>
+                            <tr>
+                                <td nowrap="nowrap" width="1%">Адрес:&nbsp;</td>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0);" width="100%">
+                                    <?php echo $this->getAddress() ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style="border-top: 1pt solid rgb(0, 0, 0);border-right: 1pt solid rgb(0, 0, 0); width: 80mm;">
+                                    Назначаение платежа: 
+                                    <b>Оплата товара из интернет-магазина <?php echo Mage::getStoreConfig("general/store_information/name", Mage::app()->getStore()) ?></b>
+                                </td>
+                                <td style="border-top: 1pt solid rgb(0, 0, 0); width: 42mm;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1pt solid rgb(0, 0, 0); width: 80mm;">За оплату услуг по договору:</td>
+                                <td style=" width: 42mm;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td  style="margin-top: 3pt;border-right: 1pt solid rgb(0, 0, 0);">&nbsp;</td>
+                                <td style=" width: 42mm;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="border-right: 1pt solid rgb(0, 0, 0); width: 80mm;text-align: center;" align="center">
+                                    <p style="border-bottom: 1pt solid rgb(0, 0, 0); text-align: center;width:70%; margin-left:10mm; font-size: 20px">
+                                        <?php echo $this->getOrderIncrementId() ?>
+                                    </p>
+                                </td>
+                                <td style=" width: 42mm; text-align: center;" align="center">
+                                    <p style="border-bottom: 1pt solid rgb(0, 0, 0); width: 75%; text-align: center; margin-left:6mm; font-size: 20px">
+                                        <?php echo $this->getOrderTotal() ?>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0);border-right: 1pt solid rgb(0, 0, 0); width: 80mm;text-align: center;" align="center"><small>номер  договора</small></td>
+                                <td style="border-bottom: 1pt solid rgb(0, 0, 0); width: 42mm;text-align: center;" align="center">
+                                    <small>сумма</small>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table style="margin-top: 3pt; width: 122mm;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td align="center"><small>&nbsp;</small></td>
+                            </tr>
+                            <tr>
+                                <td align="left"><strong>Подпись плательщика __________________</strong>&nbsp;&nbsp;</td>
+                                <td align="right" style="border-bottom: 1pt solid rgb(0, 0, 0);"><?php echo $date->format("«d» m.Y г."); ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

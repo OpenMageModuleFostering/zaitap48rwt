@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Webxmore
+ * @package     Webxmore_Pelecard
+ * @copyright   Copyright (c) 2011 Webxmore 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Webxmore_Pelecard>
+            <version>1.6.0.0</version>
+        </Webxmore_Pelecard>
+    </modules>
+    <global>
+        <models>
+            <pelecard>
+                <class>Webxmore_Pelecard_Model</class>
+            </pelecard>
+        </models>
+        <helpers>
+            <pelecard>
+                <class>Webxmore_Pelecard_Helper</class>
+            </pelecard>
+        </helpers>
+        <resources>
+            <pelecard_setup>
+                <setup>
+                    <module>Webxmore_Pelecard</module>
+                </setup>
+            </pelecard_setup>
+        </resources>
+        <blocks>
+            <pelecard><class>Webxmore_Pelecard_Block</class></pelecard>
+        </blocks>
+        <template>
+            <email>
+               <pelecard_activateemail>
+                   <label>Pelecard activate email</label>
+                   <file>pelecard_activateemail.html</file>
+                   <type>html</type>
+               </pelecard_activateemail>
+            </email>
+        </template>
+        <payment>
+            <groups>
+                <mbookers>Pelecard</mbookers>
+            </groups>
+        </payment>
+    </global>
+    <frontend>
+        <secure_url>
+            <pelecard_processing>/pelecard/processing</pelecard_processing>
+        </secure_url>
+        <routers>
+            <pelecard>
+                <use>standard</use>
+                <args>
+                    <module>Webxmore_Pelecard</module>
+                    <frontName>pelecard</frontName>
+                </args>
+            </pelecard>
+        </routers>
+        <translate>
+            <modules>
+                <Webxmore_Pelecard>
+                    <files>
+                        <default>Webxmore_Pelecard.csv</default>
+                    </files>
+                </Webxmore_Pelecard>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <pelecard>
+                    <file>pelecard.xml</file>
+                </pelecard>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+         <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <pelecard after="Mage_Adminhtml">Webxmore_Pelecard</pelecard>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Webxmore_Pelecard>
+                    <files>
+                        <default>Webxmore_Pelecard.csv</default>
+                    </files>
+                </Webxmore_Pelecard>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <pelecard>
+                    <file>pelecard.xml</file>
+                </pelecard>
+            </updates>
+        </layout>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <pelecard translate="title" module="pelecard">
+                                            <title>Pelecard Settings</title>
+                                        </pelecard>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <payment>
+            <pelecard_acc>
+                <active>0</active>
+                <model>pelecard/acc</model>
+                <title>Credit Card / Visa, Mastercard, AMEX, JCB, Diners</title>
+                <allowspecific>0</allowspecific>
+            </pelecard_acc>
+        </payment>
+        <pelecard>
+            <settings>
+                <activationstatus>0</activationstatus>
+            </settings>
+        </pelecard>
+    </default>
+</config>

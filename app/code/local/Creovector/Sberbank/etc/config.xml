@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Webxmores
+ * @package     Creovector_Sberbank
+ * @copyright   Copyright (c) 2011 Webxmore 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Creovector_Sberbank>
+            <version>1.0.0</version>
+        </Creovector_Sberbank>
+    </modules>
+    <global>
+        <models>
+            <crvsberbank>
+                <class>Creovector_Sberbank_Model</class>
+                <resourceModel>crvsberbank_mysql4</resourceModel>
+            </crvsberbank>
+            <crvsberbank_mysql4>
+                <class>Creovector_Sberbank_Model_Mysql4</class>
+                <entities>    
+                    <order>
+                        <table>crvsberbank_orders_info</table>
+                    </order>
+                </entities>
+            </crvsberbank_mysql4>
+        </models>
+        <helpers>
+            <crvsberbank>
+                <class>Creovector_Sberbank_Helper</class>
+            </crvsberbank>
+        </helpers>
+        <resources>
+            <crvsberbank_setup>
+                <setup>
+                    <module>Creovector_Sberbank</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class> 
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </crvsberbank_setup>
+            <crvsberbank_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </crvsberbank_write>
+            <crvsberbank_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </crvsberbank_read>
+        </resources>
+        <blocks>
+            <crvsberbank>
+                <class>Creovector_Sberbank_Block</class>
+            </crvsberbank>
+        </blocks>
+        <template>
+            <email>
+                <crvsberbank_activateemail>
+                    <label>Pelecard activate email</label>
+                    <file>crvsberbank_activateemail.html</file>
+                    <type>html</type>
+                </crvsberbank_activateemail>
+            </email>
+        </template>
+        <payment>
+            <groups>
+                <mbookers>JPelecard</mbookers>
+            </groups>
+        </payment>
+    </global>
+    <frontend>
+        <secure_url>
+            <crvsberbank_processing>/crvsberbank/processing</crvsberbank_processing>
+        </secure_url>
+        <routers>
+            <crvsberbank>
+                <use>standard</use>
+                <args>
+                    <module>Creovector_Sberbank</module>
+                    <frontName>crvsberbank</frontName>
+                </args>
+            </crvsberbank>
+        </routers>
+        <translate>
+            <modules>
+                <Creovector_Sberbank>
+                    <files>
+                        <default>Creovector_Sberbank.csv</default>
+                    </files>
+                </Creovector_Sberbank>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <crvsberbank>
+                    <file>crvsberbank.xml</file>
+                </crvsberbank>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <crvsberbank after="Mage_Adminhtml">Creovector_Sberbank</crvsberbank>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Creovector_Sberbank>
+                    <files>
+                        <default>Creovector_Sberbank.csv</default>
+                    </files>
+                </Creovector_Sberbank>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <crvsberbank>
+                    <file>crvsberbank.xml</file>
+                </crvsberbank>
+            </updates>
+        </layout>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <crvsberbank translate="title" module="crvsberbank">
+                                            <title>Sberbank Settings</title>
+                                        </crvsberbank>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <payment>
+            <crvsberbank_sberbank>
+                <active>0</active>
+                <model>crvsberbank/sberbank</model>
+                <title>Банковский перевод</title> 
+                <allowspecific>0</allowspecific>
+            </crvsberbank_sberbank>
+        </payment>
+    </default>
+</config>

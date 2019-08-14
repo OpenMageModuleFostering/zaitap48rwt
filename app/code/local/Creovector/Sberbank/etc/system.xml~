@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category    Webxmore
+ * @package     Webxmore_Pelecard
+ * @copyright   Copyright (c) 2011 Webxmore 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <pelecard translate="label" module="pelecard">
+                    <label>Pelecard</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>201</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <config_path>payment/pelecard_acc/active</config_path>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <debug translate="label">
+                            <label>debug</label>
+                            <frontend_type>select</frontend_type>
+                            <config_path>payment/pelecard_acc/debug</config_path>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </debug>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <config_path>payment/pelecard_acc/sort_order</config_path>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <config_path>payment/pelecard_acc/title</config_path>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+						<peleUsername translate="label">
+                            <label>Username</label>
+                            <frontend_type>text</frontend_type>
+							<config_path>payment/pelecard_acc/peleUsername</config_path>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </peleUsername>
+						
+                        <password translate="label">
+                            <label>Password</label>
+                            <frontend_type>text</frontend_type>
+							<config_path>payment/pelecard_acc/password</config_path>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </password>	
+						
+                        <terminalNo translate="label">
+                            <label>מספר מסוף </label>
+                            <frontend_type>text</frontend_type>
+							<config_path>payment/pelecard_acc/terminalNo</config_path>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </terminalNo>						
+										
+                        <cashpayment translate="label">
+                            <label>תשלום חלקי במזומן</label>
+                            <frontend_type>text</frontend_type>
+							<config_path>payment/pelecard_acc/cashpayment</config_path>
+							<comment>סכום, אשר מעליו ניתן יהיה לשלם חלק מהרכישה במזומן. השאר ריק לביטול האפשרות</comment>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cashpayment>						
+										
+                        <maxPayments translate="comment">
+                            <label>מספר תשלומים</label>
+							<config_path>payment/pelecard_acc/maxPayments</config_path>
+							<comment>הזן מספר תשלומים עבור כל טווח מחירים, העיבוד יתבצע על פי הסדר שמופיע בתצוגה</comment>
+                            <frontend_model>pelecard/system_config_form_field_regexceptions</frontend_model>
+                            <backend_model>pelecard/system_config_backend_design_exception</backend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </maxPayments>
+						
+                        <creditTypeFrom translate="label">
+                            <label>עסקאות קרדיט </label>
+							<config_path>payment/pelecard_acc/creditTypeFrom</config_path>		
+							 <comment>  מעל מספר תשלומים זה, חייב כעסקת קרדיט </comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>pelecard/source_payments</source_model>							
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </creditTypeFrom>						
+                        <Background translate="label">
+                            <label>צבע רקע </label>
+							<comment> קוד צבע לרקע - את הקוד צריך לשלוח ללא הסולמית בהתחלה</comment>
+                            <frontend_type>text</frontend_type>
+							<config_path>payment/pelecard_acc/Background</config_path>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </Background>										
+                        <Id translate="label">
+                            <label>תעודת זהות</label>
+							<comment> באשר פעיל, המשתמש חייב להקליד תעות זהות</comment>							
+                            <frontend_type>select</frontend_type>
+							<config_path>payment/pelecard_acc/Id</config_path>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </Id>						
+                        <cvv2 translate="label">
+                            <label>cvv2</label>
+							<comment> באשר פעיל, המשתמש חייב להקליד cvv2</comment>		
+                            <frontend_type>select</frontend_type>
+							<config_path>payment/pelecard_acc/cvv2</config_path>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cvv2>						
+                    </fields>
+                </pelecard>
+            </groups>
+        </payment>
+    </sections>
+</config>
+
+
+

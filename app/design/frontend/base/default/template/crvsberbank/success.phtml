@@ -1,0 +1,9 @@
+<?php Mage::log(Mage::getSingleton('checkout/session')->getLastOrderId()); ?>
+
+<?php $order = Mage::getModel("sales/order")->load(Mage::getSingleton('checkout/session')->getLastOrderId()) ?>
+
+<?php if (in_array($order->getPayment()->getMethodInstance()->getCode(), array("crvsberbank_sberbank"))) { ?>
+    <div class="pdf">
+        <a href="/crvsberbank/index/index/folder/bank/file/<?php echo $order->getIncrementId() ?>.pdf">Скачать</a>
+    </div>
+<?php } ?>
