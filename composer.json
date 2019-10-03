@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/zaitAP48RWT",
+    "name": "OpenMageModuleFostering\/zaitAP48RWT",
     "type": "magento-module",
     "license": "GPL",
     "homepage": "",
     "description": "This extension allows to create sberbank payment for in PDF format. Customer can open and print it.",
     "authors": [
-    {
-        "name": "Oleg V. Kryuchin",
-        "email": "kryuchov@gmail.com"
-    }
-],
+        {
+            "name": "Oleg V. Kryuchin",
+            "email": "kryuchov@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
